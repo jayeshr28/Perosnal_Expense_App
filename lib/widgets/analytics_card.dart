@@ -42,13 +42,18 @@ class Analytics extends StatelessWidget {
           children: [
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
-              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text("Analytics",
                   style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, ),),
-                SizedBox(width: 150,),
-                Text("This Week", style: TextStyle(color: Colors.grey),).px4(),
-                Icon(Icons.access_alarm, color: Colors.white60,size: 18,)
+                // SizedBox(width: 150,),
+                Row(
+                  children: [
+                    Text("This Week", style: TextStyle(color: Colors.grey),).px2(),
+                    Icon(Icons.access_alarm, color: Colors.white60,size: 18,)
+                  ],
+                ),
+
               ],
             ).pOnly(top: 30, left: 20, right: 20, bottom: 17),
 

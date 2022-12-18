@@ -5,14 +5,16 @@ import '../models/transaction.dart';
 
 class Expense extends StatefulWidget {
   final List<Transaction> recentTransactions;
-   const Expense({Key? key, required this.recentTransactions, }) : super(key: key);
+  const Expense({
+    Key? key,
+    required this.recentTransactions,
+  }) : super(key: key);
 
   @override
   State<Expense> createState() => _ExpenseState();
 }
 
 class _ExpenseState extends State<Expense> {
-
   @override
   void initState() {
     super.initState();
@@ -45,6 +47,7 @@ class _ExpenseState extends State<Expense> {
       return sum + (item['amount'] as double);
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -52,9 +55,15 @@ class _ExpenseState extends State<Expense> {
       height: 80,
       alignment: Alignment.center,
       decoration: BoxDecoration(
-        image: DecorationImage(image: AssetImage('asset/images/crown.png'), opacity: 0.5, ),
+        image: DecorationImage(
+          image: AssetImage('asset/images/crown.png'),
+          opacity: 0.5,
+        ),
       ),
-      child: Text('\$$totalSpending', style: TextStyle(fontSize: 60),)
-      ,);
+      child: Text(
+        '₹$totalSpending',
+        style: TextStyle(fontSize: 60),
+      ),
+    );
   }
 }

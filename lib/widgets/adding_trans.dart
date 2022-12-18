@@ -1,10 +1,6 @@
-import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
-import 'adaptive_button.dart';
 
 class NewTransaction extends StatefulWidget {
   final Function addTx;
@@ -28,8 +24,6 @@ class _NewTransactionState extends State<NewTransaction> {
   _NewTransactionState(this._selectedDate) {
     print('Constructor NewTransaction State');
   }
-
-
 
   @override
   void initState() {
@@ -86,7 +80,6 @@ class _NewTransactionState extends State<NewTransaction> {
     print('...');
   }
 
-
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -103,15 +96,26 @@ class _NewTransactionState extends State<NewTransaction> {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: <Widget>[
               TextField(
-                decoration: InputDecoration(labelText: 'Title'),
+                decoration: InputDecoration(
+                    labelText: 'Title',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    )),
                 controller: _titleController,
                 onSubmitted: (_) => _submitData(),
                 // onChanged: (val) {
                 //   titleInput = val;
                 // },
               ),
+              SizedBox(
+                height: 10,
+              ),
               TextField(
-                decoration: InputDecoration(labelText: 'Amount'),
+                decoration: InputDecoration(
+                    labelText: 'Amount',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    )),
                 controller: _amountController,
                 keyboardType: TextInputType.number,
                 onSubmitted: (_) => _submitData(),
@@ -125,26 +129,34 @@ class _NewTransactionState extends State<NewTransaction> {
                       child: Text(
                         _selectedDate == null
                             ? 'No Date Chosen!'
-                            : 'Picked Date: ${DateFormat.yMd().format(_selectedDate)}',
+                            : 'Date: ${DateFormat.MMMEd().format(_selectedDate)}',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "Poppins"),
                       ),
                     ),
-                    FlatButton(
-                      textColor: Theme.of(context).primaryColor,
+                    TextButton(
                       child: Text(
-                       "Choose Date",
+                        "Change Date",
                         style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
+                            color: Colors.red, fontFamily: "Montserrat"),
                       ),
-                      onPressed: ()=>_presentDatePicker(),
+                      onPressed: () => _presentDatePicker(),
                     )
                   ],
                 ),
               ),
-              RaisedButton(
-                child: Text('Add Transaction'),
-                color: Theme.of(context).primaryColor,
-                textColor: Theme.of(context).textTheme.button?.color,
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Theme.of(context).primaryColor,
+                ),
+                child: Text(
+                  'Add Transaction',
+                  style: TextStyle(
+                    color: Theme.of(context).textTheme.button?.color,
+                  ),
+                ),
                 onPressed: _submitData,
               ),
             ],
@@ -154,4 +166,3 @@ class _NewTransactionState extends State<NewTransaction> {
     );
   }
 }
-

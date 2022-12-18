@@ -12,7 +12,10 @@ class ChartBar extends StatelessWidget {
     return Column(
       children: [
         FittedBox(
-          child: Text('\$${spendingAmount.toStringAsFixed(0)}', style: TextStyle(color: Colors.white),),
+          child: Text(
+            '₹${spendingAmount.toStringAsFixed(0)}',
+            style: TextStyle(color: Colors.white),
+          ),
         ),
         SizedBox(
           height: 4,
@@ -33,7 +36,8 @@ class ChartBar extends StatelessWidget {
                 heightFactor: spendingPctOfTotal,
                 child: Container(
                   decoration: BoxDecoration(
-                    color: spendingPctOfTotal>0.5?Colors.pink:Colors.yellow,
+                    color:
+                        spendingPctOfTotal > 0.5 ? Colors.pink : Colors.yellow,
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
@@ -44,7 +48,10 @@ class ChartBar extends StatelessWidget {
         SizedBox(
           height: 4,
         ),
-        Text(label, style: TextStyle(color: Colors.white),),
+        Text(
+          label,
+          style: TextStyle(color: Colors.white),
+        ),
       ],
     );
   }

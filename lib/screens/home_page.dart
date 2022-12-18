@@ -3,12 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:personal_expense_app/widgets/adding_trans.dart';
 import 'package:personal_expense_app/widgets/analytics_card.dart';
-import 'package:personal_expense_app/widgets/bottom_bar.dart';
 import 'package:personal_expense_app/widgets/expense.dart';
-import 'package:personal_expense_app/widgets/routes.dart';
 import 'package:personal_expense_app/widgets/transaction_list.dart';
 import 'package:velocity_x/velocity_x.dart';
-import 'package:intl/intl.dart';
+
 import '../models/transaction.dart';
 
 class HomePage extends StatefulWidget {
@@ -59,6 +57,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
       _userTransactions.add(newTx);
     });
   }
+
   void _startAddNewTransaction(BuildContext ctx) {
     showModalBottomSheet(
       context: ctx,
@@ -103,69 +102,38 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                     )),
                   ),
                   IconButton(
-                      onPressed: () {}, icon: Icon(CupertinoIcons.bell))
+                      onPressed: () {
+                        _startAddNewTransaction(context);
+                      },
+                      icon: Icon(CupertinoIcons.add))
                 ],
               ),
               Text(
                 "This month spend",
                 style: GoogleFonts.poppins(fontSize: 13, color: Colors.grey),
               ).py16(),
-
               Expense(
                 recentTransactions: _recentTransactions,
               ),
-
-              Analytics(recentTransactions: _recentTransactions,),
-
+              Analytics(
+                recentTransactions: _recentTransactions,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     "Recent Transactions",
                     style: GoogleFonts.heebo(
-                        textStyle:
-                            TextStyle(fontSize: 18, color: Colors.grey)),
+                        textStyle: TextStyle(fontSize: 18, color: Colors.grey)),
                   ),
                   IconButton(
-                      onPressed: () {},
-                      icon: Icon(CupertinoIcons.chevron_down))
+                      onPressed: () {}, icon: Icon(CupertinoIcons.chevron_down))
                 ],
               ).pOnly(top: 16, right: 14, left: 14),
-
-
-
-
-
-            TransactionList(_userTransactions, _deleteTransaction)
-
-
-
-
-
-
-
+              TransactionList(_userTransactions, _deleteTransaction)
             ],
           ),
         ),
-      ),
-      floatingActionButton: InkWell(
-        onTap: (){ _startAddNewTransaction(context);},
-        child: Container(
-          width: 152,
-          height: 50,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(25),
-            color: Colors.blue,
-          ),
-
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("Add Transaction", style: GoogleFonts.nunito(),).pOnly(left: 10),
-              IconButton(icon: Icon(Icons.add), onPressed: () {},
-          ),],),
-        ).px8(),
       ),
     );
   }

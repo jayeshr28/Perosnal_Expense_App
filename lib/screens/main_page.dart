@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:personal_expense_app/screens/home_page.dart';
 import 'package:personal_expense_app/screens/profile_screen.dart';
 import 'package:personal_expense_app/screens/scheduled_screen.dart';
+
 import 'analytics_screen.dart';
 
 class MainPage extends StatefulWidget {
@@ -13,11 +14,10 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-
-  List pages= [
+  List pages = [
     HomePage(),
     ScheduledPage(),
-    AnalyticsPage(),
+    PomodoroPage(),
     ProfilePage(),
   ];
 
@@ -27,41 +27,53 @@ class _MainPageState extends State<MainPage> {
       _selectedIndex = index;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: pages[_selectedIndex],
-      bottomNavigationBar:Container(
-        height: MediaQuery.of(context).size.height*0.09,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
-              topRight: Radius.circular(30), topLeft: Radius.circular(30)),
-
-        ),
-        child: ClipRRect(
-          borderRadius:  BorderRadius.only(
-            topLeft: Radius.circular(30.0),
-            topRight: Radius.circular(30.0),
+        body: pages[_selectedIndex],
+        bottomNavigationBar: Container(
+          height: MediaQuery.of(context).size.height * 0.09,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+                topRight: Radius.circular(30), topLeft: Radius.circular(30)),
           ),
-          child: BottomNavigationBar(
-            items: [
-              BottomNavigationBarItem(icon: Icon(CupertinoIcons.home), label: "Home",),
-              BottomNavigationBarItem(icon: Icon(CupertinoIcons.calendar), label: "History"),
-              BottomNavigationBarItem(icon: Icon(CupertinoIcons.chart_pie_fill), label: "Analysis"),
-              BottomNavigationBarItem(icon: Icon(CupertinoIcons.person_solid), label: "Profile"),
-
-            ],
-            elevation: 5,
-            selectedItemColor: Colors.black,
-            unselectedItemColor: Colors.grey,
-            showSelectedLabels: false,
-            showUnselectedLabels: false,
-            type: BottomNavigationBarType.fixed,
-            currentIndex: _selectedIndex, //New
-            onTap: _onItemTapped,
+          child: ClipRRect(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(30.0),
+              topRight: Radius.circular(30.0),
+            ),
+            child: BottomNavigationBar(
+              items: [
+                BottomNavigationBarItem(
+                  icon: Icon(CupertinoIcons.home),
+                  label: "Home",
+                ),
+                BottomNavigationBarItem(
+                    icon: ImageIcon(
+                      AssetImage(
+                        "asset/images/calendar.png",
+                      ),
+                      color: _selectedIndex == 1 ? Colors.black : Colors.grey,
+                    ),
+                    label: "Make Habit"),
+                BottomNavigationBarItem(
+                    icon: Icon(CupertinoIcons.chart_pie_fill),
+                    label: "Analysis"),
+                BottomNavigationBarItem(
+                    icon: Icon(CupertinoIcons.money_dollar_circle),
+                    label: "Profile"),
+              ],
+              elevation: 5,
+              selectedItemColor: Colors.black,
+              unselectedItemColor: Colors.grey,
+              showSelectedLabels: false,
+              showUnselectedLabels: false,
+              type: BottomNavigationBarType.fixed,
+              currentIndex: _selectedIndex, //New
+              onTap: _onItemTapped,
+            ),
           ),
-        ),
-      )
-    );
+        ));
   }
 }
