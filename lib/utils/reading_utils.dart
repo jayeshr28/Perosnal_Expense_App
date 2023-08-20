@@ -1,0 +1,23 @@
+List<String> ReadingUtils = [
+  "Dive into a new book today. Begin reading a book from a genre you don't typically explore.",
+  "Continue your reading journey. Spend at least 30 minutes reading your chosen book.",
+  "Expand your horizons. Read a chapter from a non-fiction book or informative article.",
+  "Dive deeper into fiction. Continue reading your chosen book from Day 1.",
+  "Reading is an adventure. Find a fantasy or science fiction book and immerse yourself in it.",
+  "Take a break from fiction. Explore a biography or memoir for a change of pace.",
+  "Reflect on your reading journey so far. What have you learned or enjoyed?",
+  "Set a reading goal for the week. How many pages or chapters do you want to complete?",
+  "Challenge yourself. Try to finish a book within the next three days.",
+  "Explore a classic. Begin reading a renowned classic novel or piece of literature.",
+  "Stay on track with your weekly reading goal. Review and adjust if necessary.",
+  "Read something written by an author from a different culture or background.",
+  "Choose a book recommended by a friend or family member.",
+  "Reflect on your reading journey so far. What insights have you gained?",
+  "Read something inspiring, like a motivational book or self-help guide.",
+  "Spend time in nature with a good book. Read outdoors, weather permitting.",
+  "Read a chapter from a book related to a skill you want to develop.",
+  "Select a book that challenges your perspective or worldview.",
+  "Read a work of literature that has won an award or recognition.",
+  "Reread a favorite book from your past.",
+  "Celebrate your reading journey. Reflect on the books you've read and what you've gained from the experience."
+];

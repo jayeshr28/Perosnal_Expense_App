@@ -29,7 +29,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  velocity_x: ^3.5.1
+  velocity_x:
   intl:
   font_awesome_flutter:
   circular_countdown_timer: ^0.2.3
@@ -44,6 +44,12 @@ dependencies:
   wave: ^0.2.2
   just_audio: ^0.9.30
   lottie:
+  time_chart:
+  persistent_bottom_nav_bar: ^5.0.2
+  shared_preferences:
+  flutter_dnd:
+  material_design_icons_flutter:
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 import 'package:personal_expense_app/widgets/transaction_item.dart';
 
 import '../models/transaction.dart';
@@ -17,19 +17,12 @@ class TransactionList extends StatelessWidget {
         child: transactions.isEmpty
             ? Column(
                 children: <Widget>[
-                  Text(
-                    'No transactions added yet!..............??!..',
-                    style: GoogleFonts.poppins(color: Colors.redAccent),
-                  ),
                   SizedBox(
                     height: 20,
                   ),
                   Container(
                       height: 200,
-                      child: Image.asset(
-                        'asset/images/mr-bean.gif',
-                        fit: BoxFit.cover,
-                      )),
+                      child: Lottie.asset("asset/lottie/empty.json")),
                 ],
               )
             : Container(

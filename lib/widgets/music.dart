@@ -5,7 +5,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:just_audio/just_audio.dart';
 
 class MusicPlayer extends StatefulWidget {
-  const MusicPlayer({Key? key}) : super(key: key);
+  final Color color;
+  const MusicPlayer({Key? key, required this.color}) : super(key: key);
 
   @override
   MusicPlayerState createState() => MusicPlayerState();
@@ -73,7 +74,7 @@ class MusicPlayerState extends State<MusicPlayer> with WidgetsBindingObserver {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         // Display play/pause button and volume/speed sliders.
-        ControlButtons(_player),
+        ControlButtons(color: widget.color, player: _player),
         // Display seek bar. Using StreamBuilder, this widget rebuilds
         // each time the position, buffered position or duration changes.
       ],
@@ -84,8 +85,9 @@ class MusicPlayerState extends State<MusicPlayer> with WidgetsBindingObserver {
 /// Displays the play/pause button and volume/speed sliders.
 class ControlButtons extends StatelessWidget {
   final AudioPlayer player;
-
-  const ControlButtons(this.player, {Key? key}) : super(key: key);
+  final Color color;
+  const ControlButtons({Key? key, required this.color, required this.player})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -110,14 +112,14 @@ class ControlButtons extends StatelessWidget {
             return IconButton(
               icon: const FaIcon(FontAwesomeIcons.volumeHigh),
               iconSize: 25.0,
-              color: Colors.white,
+              color: color,
               onPressed: player.play,
             );
           } else if (processingState != ProcessingState.completed) {
             return IconButton(
               icon: const FaIcon(FontAwesomeIcons.volumeXmark),
               iconSize: 25.0,
-              color: Colors.white,
+              color: color,
               onPressed: player.pause,
             );
           } else {

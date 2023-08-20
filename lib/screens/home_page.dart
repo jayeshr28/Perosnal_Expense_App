@@ -94,7 +94,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Home",
+                    "Expenses",
                     style: GoogleFonts.heebo(
                         textStyle: TextStyle(
                       fontSize: 30,
@@ -108,16 +108,47 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                       icon: Icon(CupertinoIcons.add))
                 ],
               ),
-              Text(
-                "This month spend",
-                style: GoogleFonts.poppins(fontSize: 13, color: Colors.grey),
-              ).py16(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text(
+                    "This month Budget",
+                    style:
+                        GoogleFonts.poppins(fontSize: 13, color: Colors.grey),
+                  ).py16(),
+                  Text(
+                    "This month spend",
+                    style:
+                        GoogleFonts.poppins(fontSize: 13, color: Colors.grey),
+                  ).py16(),
+                ],
+              ),
               Expense(
                 recentTransactions: _recentTransactions,
               ),
               Analytics(
                 recentTransactions: _recentTransactions,
               ),
+              SizedBox(
+                height: 20,
+              ),
+              // Container(
+              //   height: 100,
+              //   padding: const EdgeInsets.all(10),
+              //   width: MediaQuery.of(context).size.width,
+              //   decoration: BoxDecoration(
+              //       color: Colors.lightGreenAccent,
+              //       borderRadius: BorderRadius.circular(20)),
+              //   child: Row(
+              //     crossAxisAlignment: CrossAxisAlignment.center,
+              //     children: [
+              //       Text(
+              //         "Budget",
+              //         style: TextStyle(fontSize: 20, fontFamily: "Poppins"),
+              //       ),
+              //     ],
+              //   ),
+              // ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

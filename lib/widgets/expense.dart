@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:personal_expense_app/widgets/new_budget.dart';
 
 import '../models/transaction.dart';
 
 class Expense extends StatefulWidget {
   final List<Transaction> recentTransactions;
+
   const Expense({
     Key? key,
     required this.recentTransactions,
@@ -48,10 +50,17 @@ class _ExpenseState extends State<Expense> {
     });
   }
 
+  double budget = 0.0;
+  void getBudget(double bud) {
+    setState(() {
+      budget = bud;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 250,
+      width: 300,
       height: 80,
       alignment: Alignment.center,
       decoration: BoxDecoration(
@@ -60,9 +69,41 @@ class _ExpenseState extends State<Expense> {
           opacity: 0.5,
         ),
       ),
-      child: Text(
-        '₹$totalSpending',
-        style: TextStyle(fontSize: 60),
+      child: Expanded(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Row(
+              children: [
+                Text(
+                  '₹ $budget',
+                  style: TextStyle(fontSize: 35, color: Colors.green),
+                ),
+                IconButton(
+                    onPressed: () {
+                      showModalBottomSheet(
+                        context: context,
+                        builder: (_) {
+                          return GestureDetector(
+                            onTap: () {},
+                            child: NewBudget(getBudget),
+                            behavior: HitTestBehavior.opaque,
+                          );
+                        },
+                      );
+                    },
+                    icon: Icon(
+                      Icons.edit,
+                      size: 15,
+                    )),
+              ],
+            ),
+            Text(
+              '₹ $totalSpending',
+              style: TextStyle(fontSize: 35, color: Colors.red),
+            ),
+          ],
+        ),
       ),
     );
   }

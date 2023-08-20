@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
@@ -45,10 +44,11 @@ class _TransactionItemState extends State<TransactionItem> {
               elevation: 0,
               child: Align(
                   alignment: Alignment.center,
-                  child: FaIcon(
-                    FontAwesomeIcons.moneyBillTransfer,
-                    color: Colors.green,
-                    size: 20,
+                  child: Image.asset(
+                    "asset/images/down_dollar.png",
+                    height: 50,
+                    width: 50,
+                    color: Colors.white,
                   )),
             ),
           ),

@@ -1,11 +1,20 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:personal_expense_app/utils/detox_utils.dart';
+import 'package:personal_expense_app/utils/journal_utils.dart';
 import 'package:personal_expense_app/utils/meditation_utils.dart';
+import 'package:personal_expense_app/utils/no_junk_utils.dart';
+import 'package:personal_expense_app/utils/reading_utils.dart';
 import 'package:personal_expense_app/widgets/calendar_pin.dart';
 import 'package:velocity_x/velocity_x.dart';
 
+import '../utils/workout_utils.dart';
+
 class ChallengePerDay extends StatefulWidget {
   final String image;
-  const ChallengePerDay({Key? key, required this.image}) : super(key: key);
+  final String habit;
+  const ChallengePerDay({Key? key, required this.image, required this.habit})
+      : super(key: key);
 
   @override
   State<ChallengePerDay> createState() => _ChallengePerDayState();
@@ -13,6 +22,30 @@ class ChallengePerDay extends StatefulWidget {
 
 class _ChallengePerDayState extends State<ChallengePerDay> {
   int i = 0;
+
+  String getUtils(int i) {
+    switch (widget.habit) {
+      case "Meditate":
+        return MeditationUtils[i];
+      case "Workout":
+        return WorkoutUtils[i];
+      case "Eat Healthy":
+        return NoJunkUtils[i];
+      case "Reading":
+        return ReadingUtils[i];
+      case "Daily Journal":
+        return JournalUtil[i];
+      case "Complete Detox":
+        return DetoxUtils[i];
+    }
+    return "Something went wrong!";
+  }
+
+  int lastDay = 0;
+  bool _isCompleted(int index) {
+    if (lastDay > index) return true;
+    return false;
+  }
 
   void incrementDay(int k) {
     setState(() {
@@ -27,18 +60,69 @@ class _ChallengePerDayState extends State<ChallengePerDay> {
         child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
           Align(
             alignment: Alignment.topLeft,
-            child:
-                IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back_ios)),
-          ),
-          SizedBox(
-            height: 20,
+            child: IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: Icon(Icons.arrow_back_ios)),
           ),
           Text(
             "You will face many defeats in life, but never feel defeated !",
             style: TextStyle(fontFamily: "Poppins", fontSize: 20),
           ).p(20),
+          Container(
+            height: 80,
+            margin: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+                color: CupertinoColors.separator,
+                borderRadius: BorderRadius.circular(10)),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Days Completed",
+                  style: TextStyle(fontFamily: "Poppins", fontSize: 15),
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Expanded(
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 21,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        height: 30,
+                        width: 30,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(50),
+                            border: Border.all(
+                              color: Colors.black,
+                            )),
+                        child: _isCompleted(index)
+                            ? Icon(
+                                Icons.done,
+                                color: Colors.blue,
+                                size: 15,
+                              )
+                            : Center(
+                                child: Text(
+                                  "${index + 1}",
+                                  style: TextStyle(fontSize: 15),
+                                ),
+                              ),
+                      ).px4();
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ).px8(),
           SizedBox(
-            height: 20,
+            height: 10,
           ),
           Stack(
             children: [
@@ -47,7 +131,7 @@ class _ChallengePerDayState extends State<ChallengePerDay> {
                     margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
                     height: 70,
                     decoration: BoxDecoration(
-                      color: Colors.pinkAccent,
+                      color: Colors.blueGrey,
                       borderRadius: BorderRadius.circular(10),
                     )),
               ),
@@ -88,7 +172,7 @@ class _ChallengePerDayState extends State<ChallengePerDay> {
                 Container(
                   padding: const EdgeInsets.all(10),
                   child: Text(
-                    MeditationUtils[i],
+                    getUtils(i),
                     style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 18,
@@ -101,15 +185,15 @@ class _ChallengePerDayState extends State<ChallengePerDay> {
           SizedBox(
             height: 10,
           ),
-          TextButton(
-              onPressed: () {
-                incrementDay(i + 1);
-              },
-              child: Text(
-                "Tap to mark Day " + (i + 1).toString() + " Completed",
-                style: TextStyle(
-                    color: Colors.green, fontSize: 20, fontFamily: "Poppins"),
-              )),
+          // TextButton(
+          //     onPressed: () {
+          //       incrementDay(i + 1);
+          //     },
+          //     child: Text(
+          //       "Tap to mark Day " + (i + 1).toString() + " Completed",
+          //       style: TextStyle(
+          //           color: Colors.green, fontSize: 20, fontFamily: "Poppins"),
+          //     )),
         ]),
       ),
     );

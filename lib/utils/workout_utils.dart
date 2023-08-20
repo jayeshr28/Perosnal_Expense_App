@@ -1,0 +1,23 @@
+List<String> WorkoutUtils = [
+  "Start strong. Your journey to a healthier you begins today!\nDay 1: 30 jumping jacks, 20 alternating lunges, 25 crunches, 5 push-ups, 20-second plank",
+  "You've got this! Consistency is the key to success.\nDay 2: 10 burpees, 10 sit-ups, 15 tricep dips, 20 butt kicks, 20 toe touch crunches",
+  "Push through the discomfort; it's a sign of progress.\nDay 3: 25 mountain climbers, 5 push-ups, 25 crunches, 20 walking lunges, 20-second wall sit",
+  "Stay committed; you're one step closer to your goal.\nDay 4: 20 butt kicks, 15 tricep dips, 10 burpees, 15 squats, 20 toe touch crunches",
+  "Believe in yourself. You are stronger than you think.\nDay 5: 30 jumping jacks, 15 step-ups, 10 sit-ups, 20 ab bikes, 20 alternating lunges",
+  "Rest is part of the process. Embrace it and come back stronger.\nDay 6: REST DAY",
+  "You're building strength with every rep. Keep going!\nDay 7: 30 mountain climbers, 20 squats, 8 push-ups, 20 butt kicks, 25 toe touch crunches",
+  "Each day is a chance to improve. Keep pushing forward!\nDay 8: 40 jumping jacks, 30 alternative lunges, 30 crunches, 8 push-ups, 25-second plank",
+  "Remember why you started. That's your motivation!\nDay 9: 12 burpees, 10 sit-ups, 15 tricep dips, 25 butt kicks, 25 toe touch crunches",
+  "Your body can do amazing things. Keep challenging it!\nDay 10: 30 mountain climbers, 8 push-ups, 30 crunches, 20 walking lunges, 30-second wall sit",
+  "You're not here to be average. You're here to be awesome!\nDay 11: 25 butt kicks, 15 tricep dips, 12 burpees, 20 squats, 30 toe touch crunches",
+  "Every drop of sweat is a step towards your goals.\nDay 12: 30 jumping jacks, 20 step-ups, 15 sit-ups, 20 ab bikes, 25 alternating lunges",
+  "Rest, recharge, and prepare to conquer the upcoming challenges.\nDay 13: REST DAY",
+  "The only bad workout is the one that didn't happen.\nDay 14: 40 mountain climbers, 20 squats, 10 push-ups, 30 butt kicks, 25 toe touch crunches",
+  "You've come a long way. Keep going; you're unstoppable!\nDay 15: 40 jumping jacks, 30 alternative lunges, 30 crunches, 8 push-ups, 25-second plank",
+  "Strength doesn't come from what you can do; it comes from overcoming the things you once thought you couldn't.\nDay 16: 12 burpees, 10 sit-ups, 15 tricep dips, 25 butt kicks, 25 toe touch crunches",
+  "Stay consistent, and you'll see incredible results.\nDay 17: 30 mountain climbers, 8 push-ups, 30 crunches, 20 walking lunges, 30-second wall sit",
+  "The pain you feel today will be the strength you feel tomorrow.\nDay 18: 25 butt kicks, 15 tricep dips, 12 burpees, 20 squats, 30 toe touch crunches",
+  "You're not just changing your body; you're changing your life.\nDay 19: 30 jumping jacks, 20 step-ups, 15 sit-ups, 20 ab bikes, 25 alternating lunges",
+  "Your body deserves this rest. Enjoy it and get ready to finish strong!\nDay 20: REST DAY",
+  "Congratulations! You've completed the challenge. Keep this momentum going!\nDay 21: 40 mountain climbers, 20 squats, 10 push-ups, 30 butt kicks, 25 toe touch crunches"
+];

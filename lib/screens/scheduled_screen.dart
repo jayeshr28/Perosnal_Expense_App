@@ -7,19 +7,19 @@ class ScheduledPage extends StatelessWidget {
   final List<String> avatar = [
     "asset/images/meditate.jpg",
     "asset/images/workout.jpg",
-    "asset/images/workout.jpg",
-    "asset/images/workout.jpg",
-    "asset/images/workout.jpg",
-    "asset/images/workout.jpg"
+    "asset/images/no_junk.jpg",
+    "asset/images/study.jpg",
+    "asset/images/journal.png",
+    "asset/images/detox.jpg"
   ];
 
   final List<String> title = [
     "Meditate",
     "Workout",
-    "Productivity",
     "Eat Healthy",
+    "Reading",
+    "Daily Journal",
     "Complete Detox",
-    "Walk",
   ];
 
   @override
@@ -53,107 +53,113 @@ class ScheduledPage extends StatelessWidget {
             Container(
               margin: const EdgeInsets.all(15),
               width: double.infinity,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    "21 Days Challenge",
-                    style: TextStyle(
-                        fontFamily: "Montserrat",
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Wrap(
-                    children: [
-                      Text(
-                        "Success ",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontFamily: "Poppins",
-                            fontSize: 17,
-                            color: Colors.red),
-                      ),
-                      Text(
-                        "will not come ",
-                        style: TextStyle(fontFamily: "Poppins", fontSize: 17),
-                      ),
-                      Text(
-                        "Tomorrow ",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontFamily: "Poppins",
-                            fontSize: 17,
-                            color: Colors.green),
-                      ),
-                      Text(
-                        "unless you start ",
-                        style: TextStyle(fontFamily: "Poppins", fontSize: 17),
-                      ),
-                      Text(
-                        "Today",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontFamily: "Poppins",
-                            fontSize: 17,
-                            color: Colors.green),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Container(
-                    height: MediaQuery.of(context).size.height * 0.65,
-                    child: GridView.builder(
-                        scrollDirection: Axis.vertical,
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
-                            crossAxisSpacing: 25,
-                            mainAxisSpacing: 25),
-                        padding: const EdgeInsets.all(10),
-                        itemCount: 6,
-                        itemBuilder: (ctx, i) {
-                          return InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (ctx) =>
-                                          ChallengePerDay(image: avatar[i])));
-                            },
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.pinkAccent,
-                                  borderRadius: BorderRadius.circular(10)),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  CircleAvatar(
-                                    backgroundImage: AssetImage(avatar[i]),
-                                    radius: 35,
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Text(
-                                    title[i],
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontFamily: "Poppins"),
-                                  ),
-                                ],
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      "21 Days Challenge",
+                      style: TextStyle(
+                          fontFamily: "Montserrat",
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Wrap(
+                      children: [
+                        Text(
+                          "Success ",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontFamily: "Poppins",
+                              fontSize: 17,
+                              color: Colors.red),
+                        ),
+                        Text(
+                          "will not come ",
+                          style: TextStyle(fontFamily: "Poppins", fontSize: 17),
+                        ),
+                        Text(
+                          "Tomorrow ",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontFamily: "Poppins",
+                              fontSize: 17,
+                              color: Colors.green),
+                        ),
+                        Text(
+                          "unless you start ",
+                          style: TextStyle(fontFamily: "Poppins", fontSize: 17),
+                        ),
+                        Text(
+                          "Today",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontFamily: "Poppins",
+                              fontSize: 17,
+                              color: Colors.green),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      height: MediaQuery.of(context).size.height * 0.65,
+                      child: GridView.builder(
+                          scrollDirection: Axis.vertical,
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2,
+                                  crossAxisSpacing: 25,
+                                  mainAxisSpacing: 25),
+                          padding: const EdgeInsets.all(10),
+                          itemCount: 6,
+                          itemBuilder: (ctx, i) {
+                            return InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (ctx) => ChallengePerDay(
+                                              image: avatar[i],
+                                              habit: title[i],
+                                            )));
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10),
+                                    border: Border.all(color: Colors.black45)),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    CircleAvatar(
+                                      backgroundImage: AssetImage(avatar[i]),
+                                      radius: 35,
+                                    ),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Text(
+                                      title[i],
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontFamily: "Poppins"),
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                          );
-                        }),
-                  )
-                ],
+                            );
+                          }),
+                    )
+                  ],
+                ),
               ),
             ),
           ],

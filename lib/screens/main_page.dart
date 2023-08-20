@@ -1,10 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:personal_expense_app/screens/home_page.dart';
-import 'package:personal_expense_app/screens/profile_screen.dart';
+import 'package:personal_expense_app/screens/pomodoro/widgets/prioritize_task.dart';
+import 'package:personal_expense_app/screens/pomodoro/widgets/profile_history.dart';
 import 'package:personal_expense_app/screens/scheduled_screen.dart';
-
-import 'analytics_screen.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -17,8 +16,8 @@ class _MainPageState extends State<MainPage> {
   List pages = [
     HomePage(),
     ScheduledPage(),
-    PomodoroPage(),
-    ProfilePage(),
+    PrioritizeWork(),
+    ProfileHistory()
   ];
 
   int _selectedIndex = 0;
@@ -46,9 +45,8 @@ class _MainPageState extends State<MainPage> {
             child: BottomNavigationBar(
               items: [
                 BottomNavigationBarItem(
-                  icon: Icon(CupertinoIcons.home),
-                  label: "Home",
-                ),
+                    icon: Icon(CupertinoIcons.money_dollar_circle),
+                    label: "Home"),
                 BottomNavigationBarItem(
                     icon: ImageIcon(
                       AssetImage(
@@ -61,7 +59,7 @@ class _MainPageState extends State<MainPage> {
                     icon: Icon(CupertinoIcons.chart_pie_fill),
                     label: "Analysis"),
                 BottomNavigationBarItem(
-                    icon: Icon(CupertinoIcons.money_dollar_circle),
+                    icon: Icon(CupertinoIcons.profile_circled),
                     label: "Profile"),
               ],
               elevation: 5,
